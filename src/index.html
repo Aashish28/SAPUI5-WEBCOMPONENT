@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+
+	<ui5-shellbar
+	id="shellbar"
+	primary-title="SAP Portal"
+	secondary-title="Ui5 Web Components"
+	logo="https://upload.wikimedia.org/wikipedia/commons/5/59/SAP_2011_logo.svg"
+	profile="https://media.licdn.com/dms/image/C5103AQG78PlK9XZrfQ/profile-displayphoto-shrink_200_200/0?e=1567641600&v=beta&t=WT9YGikBTRvieo5saU-n9xOa0mJoqLJXkcqbyYpYSAs"
+	notification-count="99+"
+	show-notifications
+	show-product-switch
+	show-co-pilot>
+
+	<ui5-icon src="nav-back" slot="icon"></ui5-icon>
+
+	<ui5-shellbar-item id="disc" src="sap-icon://disconnected" text="Disconnect"></ui5-shellbar-item>
+	<ui5-shellbar-item id="call" src="sap-icon://incoming-call" text="Incoming Calls"></ui5-shellbar-item>
+
+	<ui5-input slot="searchField"></ui5-input>
+
+	<ui5-li slot="menuItems">Application 1</ui5-li>
+	<ui5-li slot="menuItems">Application 2</ui5-li>
+	<ui5-li slot="menuItems">Application 3</ui5-li>
+	<ui5-li slot="menuItems">Application 4</ui5-li>
+	<ui5-li slot="menuItems">Application 5</ui5-li>
+
+	</ui5-shellbar><br><br>
+	
+	<ui5-popover id="popover" no-header placement-type="Bottom">
+	<div class="popover-header">
+		<ui5-title style="padding: 0.25rem 1rem 0rem 1rem">An Kimura</ui5-title>
+	</div>
+
+		<div class="popover-content">
+			<ui5-list separators="None" >
+				<ui5-li icon="sap-icon://sys-find">App Finder</ui5-li>
+				<ui5-li icon="sap-icon://settings">Settings</ui5-li>
+				<ui5-li icon="sap-icon://edit">Edit Home Page</ui5-li>
+				<ui5-li icon="sap-icon://sys-help">Help</ui5-li>
+				<ui5-li icon="sap-icon://log">Sign out</ui5-li>
+			</ui5-list>
+		</div>
+	</ui5-popover>
+
+<ui5-panel width="100%" accessible-role="Complementary"
+	header-text="Both expandable and expanded" class="full-width">
+	<h1 class="content-color">Ui5 webcomponent!</h1>
+	<ui5-label wrap>Powered by SAPui5.</ui5-label>
+	<br>
+	<ui5-label wrap>Openui5.</ui5-label>
+	<ui5-badge color-scheme="1">
+	<ui5-icon src="sap-icon://accept" slot="icon"></ui5-icon>done
+	</ui5-badge>
+	<p class="content-color">
+		We are exploring things in web component of ui5.
+	</p>
+</ui5-panel>
+	
+<ui5-tabcontainer class="full-width" show-overflow>
+	<ui5-tab text="Tab 1">
+		<ui5-button>Hello World</ui5-button><br><br>
+	</ui5-tab>
+	<ui5-tab icon="sap-icon://activities" text="Tab 2" selected>
+		<ui5-textarea placeholder="Type some text" max-length="8" show-exceeded-text></ui5-textarea><br><br>
+	</ui5-tab>
+	<ui5-tab icon="sap-icon://add" text="Tab 3">
+		<ui5-label>Date</ui5-label>
+		<ui5-datepicker style="width: 180px"></ui5-datepicker><br><br>
+	</ui5-tab>
+	<ui5-tab icon="sap-icon://calendar" text="Tab 4">
+		<ui5-label>My label</ui5-label>
+	</ui5-tab>
+	<ui5-tab-separator></ui5-tab-separator>
+	<ui5-tab icon="sap-icon://action-settings" text="Tab 5">
+		<ui5-label>New Label</ui5-label>
+	</ui5-tab>
+</ui5-tabcontainer>	
+
+	
+	
+	<script>
+		shellbar.addEventListener("profileClick", function(event) {
+			popover.openBy(event.detail.targetRef);
+		});
+	</script>
+
+    <script src="./main.js"></script>
+</body>
+</html>
